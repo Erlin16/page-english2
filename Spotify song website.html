@@ -1,0 +1,245 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Library</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+            margin: 0;
+            background: #121212;
+            color: white;
+            padding-bottom: 110px; /* Space for the bottom player */
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 25px;
+            font-size: 32px;
+            font-weight: bold;
+            background: #000;
+            border-bottom: 1px solid #282828;
+            letter-spacing: 1px;
+        }
+
+        /* GRID CONTAINER */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 40px;
+        }
+
+        /* SONG CARD */
+        .song {
+            background: #181818;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song:hover {
+            background: #282828;
+            transform: translateY(-6px);
+        }
+
+        /* IMAGE */
+        .song img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #333;
+        }
+
+        /* SONG INFO */
+        .song-info {
+            padding: 18px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song-info h3 {
+            margin: 8px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .song-info p {
+            font-size: 14px;
+            color: #b3b3b3;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .duration {
+            color: #1db954;
+            font-weight: bold;
+            margin-bottom: 10px !important;
+        }
+
+        /* LISTEN BUTTON */
+        .listen-btn {
+            background: #1db954;
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: all 0.2s ease;
+            margin-top: auto;
+        }
+
+        .listen-btn:hover {
+            background: #1ed760;
+            transform: scale(1.03);
+        }
+
+        /* FIXED FOOTER PLAYER */
+        .player {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #111;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.8);
+            border-top: 1px solid #282828;
+            z-index: 100;
+        }
+
+        .player audio {
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    🎵 Music Library
+</header>
+
+<div class="container">
+
+    <div class="song">
+        <img src="/Website/0x1900-000000-80-0-0.jpg">
+        <div class="song-info">
+            <h3>Believer</h3>
+            <p><b>Artist:</b> Imagine Dragons</p>
+            <p class="duration">Duration: 3:24</p>
+            <p>This song is about how pain and hardship can make a person stronger. It has a very energetic rhythm with strong percussion and motivational lyrics.</p>
+            <button class="listen-btn" onclick="playSong('/Website/WhatsApp-Audio-2026-03-09-at-7.35.48-AM (1).mp3')">Listen Song</button>
+        </div>
+    </div>
+
+    <div class="song">
+        <img src="/Website/My_Way_-_Frank_Sinatra.jpg">
+        <div class="song-info">
+            <h3>My Way</h3>
+            <p><b>Artist:</b> Frank Sinatra</p>
+            <p class="duration">Duration: 4:35</p>
+            <p>One of Frank Sinatra's most famous songs. The lyrics are about reflecting on life and being proud of having lived according to one's own choices.</p>
+            <button class="listen-btn" onclick="playSong('/Website/My way.mpeg.mp3')">Listen Song</button>
+        </div>
+    </div>
+
+    <div class="song">
+        <img src="/Website/artworks-000209835502-380mhp-t500x500.jpg">
+        <div class="song-info">
+            <h3>New Person</h3>
+            <p><b>Artist:</b> Currents</p>
+            <p class="duration">Duration: 6:03</p>
+            <p>The song tells the story of someone trying to become a new person, to mature and improve their life. It acknowledges that mistakes can still happen.</p>
+            <button class="listen-btn" onclick="playSong('/Website/New-Person.mp3')">Listen Song</button>
+        </div>
+    </div>
+
+    <div class="song">
+        <img src="/Website/images.jpg">
+        <div class="song-info">
+            <h3>Taking What's Not Yours</h3>
+            <p><b>Artist:</b> TV Girl</p>
+            <p class="duration">Duration: 3:25</p>
+            <p>This track is about a person who has a habit of taking things that don't belong to them, exploring themes of selfishness and manipulation.</p>
+            <button class="listen-btn" onclick="playSong('/Website/talking.mp3')">Listen Song</button>
+        </div>
+    </div>
+
+    <div class="song">
+        <img src="/Website/ab67616d00001e022ee817bc9f5e603c57b13926.jpg">
+        <div class="song-info">
+            <h3>Shout To The Lord</h3>
+            <p><b>Artist:</b> Gateway Worship</p>
+            <p class="duration">Duration: 5:40</p>
+            <p>An iconic worship ballad that exalts Jesus Christ as a refuge and tower of strength, known for its global impact on contemporary music.</p>
+            <button class="listen-btn" onclick="playSong('/Website/lord.mp3')">Listen Song</button>
+        </div>
+    </div>
+
+    <div class="song">
+        <img src="/Website/descarga.jpg">
+        <div class="song-info">
+            <h3>Goodness Of God</h3>
+            <p><b>Artist:</b> Bethel Music & Jenn Johnson</p>
+            <p class="duration">Duration: 4:58</p>
+            <p>A popular contemporary worship song expressing gratitude and acknowledging God's faithfulness and constant love.</p>
+            <button class="listen-btn" onclick="playSong('/Website/fidelidad.mpeg.mp3')">Listen Song</button>
+        </div>
+    </div>
+
+    <div class="song">
+        <img src="/Website/images (1).jpg">
+        <div class="song-info">
+            <h3>Mystery Girl</h3>
+            <p><b>Artist:</b> HOUSECALL</p>
+            <p class="duration">Duration: 2:56</p>
+            <p>Recorded at Silence Audible, this track features a dreamy lo-fi aesthetic and captures a sense of youthful longing and mystery.</p>
+            <button class="listen-btn" onclick="playSong('/Website/my-sister-girl.mp3')">Listen Song</button>
+        </div>
+    </div>
+
+    <div class="song">
+        <img src="/Website/images (2).jpg">
+        <div class="song-info">
+            <h3>A Love Like Her</h3>
+            <p><b>Artist:</b> BluNites</p>
+            <p class="duration">Duration: 3:26</p>
+            <p>A standout track featuring lead vocals by Luis Leonardo Diaz, exploring themes of deep infatuation and mesmerizing love.</p>
+            <button class="listen-btn" onclick="playSong('/Website/i-live-her.mp3')">Listen Song</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="player">
+    <audio id="audioPlayer" controls></audio>
+</div>
+
+<script>
+    function playSong(songFile) {
+        let player = document.getElementById("audioPlayer");
+        
+        // Update source
+        player.src = songFile;
+        
+        // Load and play
+        player.load();
+        player.play().catch(function(error) {
+            console.log("Playback error: ", error);
+            alert("Could not play the audio. Please verify that the file exists in the '/Website/' folder.");
+        });
+    }
+</script>
+
+</body>
+</html>
